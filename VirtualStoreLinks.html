@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Virtual Store Links</title>
+	</head>
+	<body>
+		<table width="100%" border="solid 1px">
+			<tr bgcolor="LightGrey">
+				<th colspan="5">Virtual Store Links</th>
+			</tr>
+			<tr bgcolor="LightGrey">
+				<th width="20%">Local</th>
+				<th width="20%">QA</th>
+				<th width="20%">Prod - Instance1</th>
+				<th width="20%">Prod - Instance2</th>
+				<th width="20%">Prod - Instance3</th>
+			</tr>
+			<tr>
+				<th><a href="https://localhost/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10001&langId=-1">Home</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10001&langId=-1">Home</a></th>
+				<th><a href="https://bullseyeproject.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10051&langId=-1">Home</a></th>
+				<th><a href="https://section2.bullseyeproject.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10051&langId=-1">Home</a></th>
+				<th><a href="https://section3.bullseyeproject.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10051&langId=-1">Home</a></th>
+			</tr>
+			<tr>
+				<th><a href="https://localhost/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10001&langId=-1&userId=337540294">Home - Test User</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10001&langId=-1&userId=337540294">Home - Test User</a></th>
+				<th><a href="https://bullseyeproject.com/webapp/wcs/stores/servlet/VSUserRegistrationAddExtControllerCmd?storeId=10151&catalogId=10051&langId=-1&userId=337540294">Home - Test User</a></th>
+			</tr>
+			<tr>
+				<th rowspan="4"><a href="http://localhost/cachemonitor/">Cache Monitor</a></th>
+				<th rowspan="4"><a href="http://delvmpllkell01.sapient.com:9061/cachemonitor/">Cache Monitor</a></th>
+				<th><a href="http://ec2-50-16-238-246.compute-1.amazonaws.com:9062/cachemonitor">Cache Monitor - Node 1</a></th>
+				<th rowspan="2"><a href="http://ec2-23-20-220-209.compute-1.amazonaws.com:9063/cachemonitor/">Cache Monitor - App 01</a></th>
+				<th rowspan="2"><a href="http://ec2-54-225-49-43.compute-1.amazonaws.com:9078/cachemonitor/">Cache Monitor - App 01</a></th>
+			</tr>
+			<tr>
+				<th><a href="http://ec2-54-237-15-131.compute-1.amazonaws.com:9088/cachemonitor/">Cache Monitor - Node 2</a></th>
+			</tr>
+			<tr>
+				<th><a href="http://ec2-54-204-229-254.compute-1.amazonaws.com:9107/cachemonitor/">Cache Monitor - Node 3</a></th>
+				<th rowspan="2"><a href="http://ec2-54-205-117-212.compute-1.amazonaws.com:9060/cachemonitor/">Cache Monitor - App 02</a></th>
+				<th rowspan="2"><a href="http://ec2-54-227-0-145.compute-1.amazonaws.com:9078/cachemonitor">Cache Monitor - App 02</a></th>
+			</tr>
+			<tr>
+				<th><a href="http://ec2-174-129-191-121.compute-1.amazonaws.com:9107/cachemonitor/">Cache Monitor - Node 4</a></th>
+			</tr>
+			<tr>
+				<th><a href="#">WAS Console</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com:9043/ibm/console">WAS Console</a></th>
+				<th><a href="http://www.bullseyeproject.com:9060/ibm/console/login.do">WAS Console</a></th>
+				<th><a href="https://ec2-54-221-115-138.compute-1.amazonaws.com:9043/ibm/console/login.do">WAS Console</a></th>
+				<th><a href="https://ec2-174-129-131-48.compute-1.amazonaws.com:9043/ibm/console/login.do">WAS Console</a></th>
+			</tr>
+			<tr>
+				<th><a href="https://localhost:8000/lobtools">Management Center</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com:8000/lobtools">Management Center</a></th>
+				<th><a href="https://www.bullseyeproject.com:8000/lobtools">Management Center</a></th>
+				<th><a href="https://section2.bullseyeproject.com:8000/lobtools">Management Center</a></th>
+				<th><a href="https://section3.bullseyeproject.com:8000/lobtools">Management Center</a></th>
+			</tr>
+			<tr>
+				<th><a href="'https://localhost:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon">Commerce Accelerator</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon">Commerce Accelerator</a></th>
+				<th><a href="https://www.bullseyeproject.com:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon">Commerce Accelerator</a></th>
+				<th><a href="https://section2.bullseyeproject.com:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon">Commerce Accelerator</a></th>
+				<th><a href="https://section3.bullseyeproject.com:8000/webapp/wcs/tools/servlet/ToolsLogon?XMLFile=common.mcLogon">Commerce Accelerator</a></th>
+			</tr>
+			<tr>
+				<th><a href="https://localhost:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon">Commerce Admin Console</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon">Commerce Admin Console</a></th>
+				<th><a href="https://www.bullseyeproject.com:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon">Commerce Admin Console</a></th>
+				<th><a href="https://section2.bullseyeproject.com:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon">Commerce Admin Console</a></th>
+				<th><a href="https://section3.bullseyeproject.com:8002/webapp/wcs/admin/servlet/ToolsLogon?XMLFile=adminconsole.AdminConsoleLogon">Commerce Admin Console</a></th>
+			</tr>
+			<tr>
+				<th><a href="https://localhost:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon">Commerce Org Admin Console</a></th>
+				<th><a href="https://delvmpllkell01.sapient.com:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon">Commerce Org Admin Console</a></th>
+				<th><a href="https://www.bullseyeproject.com:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon">Commerce Org Admin Console</a></th>
+				<th><a href="https://section2.bullseyeproject.com:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon">Commerce Org Admin Console</a></th>
+				<th><a href="https://section3.bullseyeproject.com:8004/webapp/wcs/orgadmin/servlet/ToolsLogon?XMLFile=buyerconsole.BuyAdminConsoleLogon">Commerce Org Admin Console</a></th>
+			</tr>
+			<tr>
+				<th><a href="http://localhost/webapp/wcs/wkspcadmin/servlet/ToolsLogon?XMLFile=workspaceadmin.WorkspaceAdminLogon">Commerce Workspace Admin Tool</a></th>
+				<th><a href="http://delvmpllkell01.sapient.com/webapp/wcs/wkspcadmin/servlet/ToolsLogon?XMLFile=workspaceadmin.WorkspaceAdminLogon">Commerce Workspace Admin Tool</a></th>
+				<th><a href="#">Commerce Workspace Admin Tool</a></th>
+			</tr>
+	</body>
+</html>
