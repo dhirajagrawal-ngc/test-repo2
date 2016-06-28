@@ -1,0 +1,105 @@
+************************************************************************************************************************
+*				Steps to build and deploy on the Kelloggs Production Environment - Instance 1						   *
+************************************************************************************************************************
+Log into QA box delvmpllkell01.sapient.com using Putty.
+wasadmin / wasAdmin#$4
+
+FYI:
+(delvmpllkell02.sapient.com
+wasadmin / Wasadmin@123)
+------------------------------------------------------------------------------------------------------------------------
+Update SVN
+		cd /opt/IBM/WebSphere/CommerceServer70/wcbd/Code/e-store/workspace
+		svn up
+provide credentials
+
+Generate build packet
+		cd /opt/IBM/WebSphere/CommerceServer70/wcbd
+		./wcbd-ant -buildfile wcbd-build.xml -Dbuild.label=yyyymmdd
+
+Verify that build packet is generated
+		cd /opt/IBM/WebSphere/CommerceServer70/wcbd/dist/server
+------------------------------------------------------------------------------------------------------------------------
+Log into QA box delvmpllkell01.sapient.com with root using Putty
+delvmpllkell01.sapient.com	root / KSOM$#@
+
+FYI:
+delvmpllkell02.sapient.com	root / Kell#123
+
+Move build packet to Primary Node of Prod
+		sftp root@ec2-50-16-238-246.compute-1.amazonaws.com
+		put /opt/IBM/WebSphere/CommerceServer70/wcbd/dist/server/wcbd-deploy-server-20131212.zip /home/wasadmin/
+		bye
+------------------------------------------------------------------------------------------------------------------------
+Log into Primary Node of Prod
+		cd /home/wasadmin
+		cp /home/wasadmin/wcbd-deploy-server-20131212.zip /u01/IBM/WebSphere/CommerceServer70/wcbd/dist/server/
+		cd /u01/IBM/WebSphere/CommerceServer70/wcbd/dist/server
+		unzip -a wcbd-deploy-server-20131212.zip
+
+		cd wcbd-deploy-server-20131212
+		chmod -R 755 *
+
+Replace the following files with the versions in svn
+		setenv.sh
+		deploy-prod.properties
+		deploy-prod.private.properties
+------------------------------------------------------------------------------------------------------------------------
+Stop Servers
+		cd /u01/IBM/WebSphere/AppServer/profiles/tkawslive/bin
+		./stopServer.sh server(X)
+Replace X with the server number corresponding to each node i.e. 1,5,6,7
+
+Stop Node Agents
+		./stopNode.sh
+This command remains same across all nodes
+
+Stop Deployment Manager
+		cd /u01/IBM/WebSphere/AppServer/bin
+		./stopManager.sh
+dmgr is only on Node 1
+
+Start Deployment Manager
+		./startManager.sh
+
+Note:
+For Node 1, the nodeagent should be stopped and started
+but the appserver should be kept stopped in order to reduce the load.
+
+If a server / nodeagent / dmgr seems to be hung while starting or stopping, kill the process.
+Identify the process to be killed
+		ps -ef | grep server(X)
+		ps -ef | grep nodeagent
+		ps -ef | grep dmgr
+
+In the result printed, note the process id which has the value '1' in the second column
+Kill the process
+		kill -9 <pid>
+------------------------------------------------------------------------------------------------------------------------
+Deploy the build packet
+cd /u01/IBM/WebSphere/CommerceServer70/wcbd/dist/server/wcbd-deploy-server-20131212
+		./wcbd-ant -buildfile wcbd-deploy.xml -Dtarget.env=prod
+
+Start Node Agents
+		cd /u01/IBM/WebSphere/AppServer/profiles/tkawslive/bin
+		./startNode.sh
+
+Verify whether the files have been synced across nodes
+Log into WAS console and go to SystemAdministration > Nodes
+The status column should have the symbol which represents "Synchronized"
+------------------------------------------------------------------------------------------------------------------------
+Copy the NonCodeAssets files
+(Node1) 
+		cd /home/wasadmin/NonCodeAssets
+(Node 2 - 4) 
+		cd /home/ec2-user/NonCodeAssets
+
+		./NonCodeAssets-copy_prod.sh
+
+Restart the servers
+cd /u01/IBM/WebSphere/AppServer/profiles/tkawslive/bin
+		./startServer.sh server(X)
+Replace X with the server number corresponding to each node i.e. 1,5,6,7
+************************************************************************************************************************
+*														End															   *
+************************************************************************************************************************
